@@ -70,4 +70,10 @@ class Battleship:
 
         letters_and_numbers_dict = BattleshipBoard.letters_and_numbers_dict(
             self)
-        return int(number_row) - 1, letters_and_numbers_dict[letter_column]    
+        return int(number_row) - 1, letters_and_numbers_dict[letter_column]
+
+    def count_hit_ships(self):
+        """
+        Counts the number of ships that have been hit on the game board.
+        """
+        return sum([row.count("X") for row in self.board])
