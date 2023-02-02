@@ -124,3 +124,32 @@ def RunGame():
                 print("*"*20)
                 BattleshipBoard.print_board(player_guess_board)
                 restart_game()
+
+
+def restart_game():
+    """
+    Prompt the player to restart the game and run the RunGame function if the player inputs 
+    "yes", or quit the game if the player inputs "no". If the player inputs any other string, 
+    repeat the prompt.
+    """
+    player_input = input("Would you like to restart the game? (yes/no): ")
+    if player_input.lower() == "yes":
+        RunGame()
+    elif player_input.lower() == "no":
+        quit()
+    else:
+        print("Please type Yes or No")
+        restart_game()def restart_game():
+    """
+    Prompt the player to restart the game and run the RunGame function if the player inputs 
+    "yes", or quit the game if the player inputs "no". If the player inputs any other string, 
+    repeat the prompt.
+    """
+    player_input = input("Would you like to restart the game? (yes/no): ")
+    if player_input.lower() == "yes":
+        RunGame()
+    elif player_input.lower() == "no":
+        quit()
+    else:
+        print("Please type Yes or No")
+        restart_game()
