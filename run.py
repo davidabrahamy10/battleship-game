@@ -1,3 +1,6 @@
+from random import randint
+
+
 class BattleshipBoard:
     """
     A class that represents the board for the game Battleship.
@@ -25,6 +28,7 @@ class BattleshipBoard:
         for row in self.board:
             print("%d|%s|" % (row_number, "|".join(row)))
             row_number += 1
+
 
 class Battleship:
     """
@@ -112,7 +116,7 @@ def RunGame():
 
         if Battleship.count_hit_ships(player_guess_board) == 5:
             print("You hit all 5 of the computers battleships!")
-            print("Well done! You won the game!")3
+            print("Well done! You won the game!")
             restart_game()
         else:
             turns -= 1
@@ -127,19 +131,6 @@ def RunGame():
 
 
 def restart_game():
-    """
-    Prompt the player to restart the game and run the RunGame function if the player inputs 
-    "yes", or quit the game if the player inputs "no". If the player inputs any other string, 
-    repeat the prompt.
-    """
-    player_input = input("Would you like to restart the game? (yes/no): ")
-    if player_input.lower() == "yes":
-        RunGame()
-    elif player_input.lower() == "no":
-        quit()
-    else:
-        print("Please type Yes or No")
-        restart_game()def restart_game():
     """
     Prompt the player to restart the game and run the RunGame function if the player inputs 
     "yes", or quit the game if the player inputs "no". If the player inputs any other string, 
