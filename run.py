@@ -166,3 +166,7 @@ def welcome_text():
     print("5 ships are hidden on the board and you have 10 guesses.")
     print("Let's get started!")
     print("*" * 30)
+
+
+if __name__ == '__main__':
+    RunGame()
