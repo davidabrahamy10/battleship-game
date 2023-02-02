@@ -77,3 +77,50 @@ class Battleship:
         Counts the number of ships that have been hit on the game board.
         """
         return sum([row.count("X") for row in self.board])
+
+
+def RunGame():
+    """
+    Run the game of Battleship. Initialize and reset the computer and player guess boards, 
+    create ships on the computer board, and start 10 turns for the player to guess the 
+    location of the computer's ships. If all ships are hit, the player wins. If the player 
+    runs out of turns, the player loses.
+    """
+    welcome_text()
+    computer_board = BattleshipBoard([[" "] * 6 for i in range(6)])
+    player_guess_board = BattleshipBoard([[" "] * 6 for i in range(6)])
+    Battleship.create_ships(computer_board)
+
+    turns = 10
+    while turns > 0:
+        BattleshipBoard.print_board(player_guess_board)
+
+        player_number_row, player_letter_column = Battleship.player_input(
+            object)
+
+        while player_guess_board.board[player_number_row][player_letter_column] == "-" or player_guess_board.board[player_number_row][player_letter_column] == "X":
+            print("You have already guessed that position")
+            player_number_row, player_letter_column = Battleship.player_input(
+                object)
+
+        if computer_board.board[player_number_row][player_letter_column] == "X":
+            print("You sunk 1 of the computers battleship!")
+            player_guess_board.board[player_number_row][player_letter_column] = "X"
+        else:
+            print("You missed the computers battleship!")
+            player_guess_board.board[player_number_row][player_letter_column] = "-"
+
+        if Battleship.count_hit_ships(player_guess_board) == 5:
+            print("You hit all 5 of the computers battleships!")
+            print("Well done! You won the game!")3
+            restart_game()
+        else:
+            turns -= 1
+            print(f"You have {turns} turns remaining")
+            if turns == 0:
+                print("*"*20)
+                print("Sorry you ran out of turns")
+                print("You lost the game!")
+                print("*"*20)
+                BattleshipBoard.print_board(player_guess_board)
+                restart_game()
