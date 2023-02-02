@@ -48,3 +48,26 @@ class Battleship:
             self.board[self.number_row][self.letter_column] = "X"
 
         return self.board
+
+    def player_input(self):
+        """
+        A method that gets player input for the guess of a ship's location.
+        """
+        while True:
+            number_row = input("Enter the row number of the ship (1-6): ")
+            if number_row in '123456':
+                break
+            else:
+                print('Invalid choice. Please select a valid row.')
+
+        while True:
+            letter_column = input(
+                "Enter the column letter of the ship (A-F): ").upper()
+            if letter_column in "ABCDEF":
+                break
+            else:
+                print('Invalid choice. Please select a valid column.')
+
+        letters_and_numbers_dict = BattleshipBoard.letters_and_numbers_dict(
+            self)
+        return int(number_row) - 1, letters_and_numbers_dict[letter_column]    
