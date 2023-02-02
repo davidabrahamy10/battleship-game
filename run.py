@@ -153,3 +153,16 @@ def restart_game():
     else:
         print("Please type Yes or No")
         restart_game()
+
+
+def welcome_text():
+    """
+    Print a welcome text to the player to introduce the game of Battleship.
+    """
+    print("*"*30)
+    print("Welcome to Battleship!")
+    print("*" * 30)
+    print("In this game, you will try to sink the computers ships.")
+    print("5 ships are hidden on the board and you have 10 guesses.")
+    print("Let's get started!")
+    print("*" * 30)
